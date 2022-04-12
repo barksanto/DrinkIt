@@ -2,6 +2,9 @@
 // click listener
 // capture input
 //fetch
+// TODO __________________________________________________________________________________
+//TODO allow 'Enter' keydown to make the search, or make the submit tags a form
+// TODO __________________________________________________________________________________
 
 const searchBtn = document.querySelector("button");
 
@@ -18,7 +21,7 @@ searchBtn.addEventListener("click", () => {
 		cardsContainer.insertAdjacentHTML(
 			"afterbegin",
 			`
-      <div class="card mx-2 my-2" style="width: 18rem;">
+      <div class="card mb-2" style="width: 18rem;">
         <img class="card-img-top" src=${drink.strDrinkThumb} alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">${drink.strDrink}</h5>
@@ -32,7 +35,7 @@ searchBtn.addEventListener("click", () => {
 		);
 	}
 
-  dpcument.addEventListener
+	// dpcument.addEventListener
 
 	//  Blue Margarita
 	fetch(
