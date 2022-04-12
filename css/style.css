@@ -1,0 +1,81 @@
+/******************************************
+/* CSS
+/*******************************************/
+/* Fonts */
+:root{
+  --main-font: 'Rokkitt', serif;
+  --secondary-font: 'Dosis', sans-serif;
+}
+/* Box Model Hack */
+*{
+  box-sizing: border-box;
+}
+
+
+h1{
+  font-family: var(--main-font);
+  margin-top: 10vh;
+}
+
+button, input{
+  padding: 5px;
+}
+/******************************************
+/* LAYOUT
+/*******************************************/
+img{
+  display: block;
+  margin: 0 auto;
+}
+
+body{
+  margin: 0 auto;
+  /* background-color: aquamarine; */
+  height: 100vh;
+  color: white;
+  /* z-index: 100; */
+
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 99999;
+  margin-left: 20px;
+  margin-right: 20px;
+
+  font-family: var(--secondary-font);
+  font-size: 1.5em;
+}
+
+
+
+.background-image{
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  display: block;
+  /* background-image: url('https://images.unsplash.com/photo-1583227061267-8428fb76fbfd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=713&q=80'); */
+  background-image: url('https://images.unsplash.com/photo-1568644396922-5c3bfae12521?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80');
+  width: 1200px;
+  height: 100vh;
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
+
+
+
+.cards{
+  display: flex;
+  justify-content: center;
+  color: black;
+  font-size: .8em;
+  /* max-width: 100vw; */
+}
+
+
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
