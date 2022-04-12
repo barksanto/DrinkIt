@@ -2,6 +2,10 @@
 // click listener
 // capture input
 //fetch
+// TODO __________________________________________________________________________________
+//TODO allow 'Enter' keydown to make the search, or make the submit tags a form
+// TODO __________________________________________________________________________________
+
 
 const searchBtn = document.querySelector("button");
 
@@ -32,7 +36,7 @@ searchBtn.addEventListener("click", () => {
 		);
 	}
 
-  dpcument.addEventListener
+	// dpcument.addEventListener
 
 	//  Blue Margarita
 	fetch(
