@@ -21,7 +21,7 @@ searchBtn.addEventListener("click", () => {
 		cardsContainer.insertAdjacentHTML(
 			"afterbegin",
 			`
-      <div class="card mb-2" style="width: 18rem;">
+      <div class="card my-2" style="width: 18rem;">
         <img class="card-img-top" src=${drink.strDrinkThumb} alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">${drink.strDrink}</h5>
