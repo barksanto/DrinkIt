@@ -57,5 +57,3 @@ searchBtn.addEventListener("click", () => {
 		.catch((err) => console.log(err));
 });
 
-// _${fullDrinkName[2]
-// margarita
