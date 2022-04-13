@@ -13,7 +13,7 @@ searchBtn.addEventListener("click", () => {
 	let fullDrinkName = input.split(" ");
 
 	let searchQuery = fullDrinkName.join("+");
-	console.log(searchQuery);
+
 	let cardsContainer = document.querySelector(".cards");
 	function createCard(drink) {
 		// find list to intert cards
@@ -37,8 +37,9 @@ searchBtn.addEventListener("click", () => {
       </div>
       `
 		);
+		console.log(drink);
 	}
-
+	let cards = "";
 	//  Blue Margarita
 	fetch(
 		`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchQuery}`
@@ -48,12 +49,18 @@ searchBtn.addEventListener("click", () => {
 			console.log(data.drinks);
 			cardsContainer.innerHTML = "";
 			data.drinks.forEach((element) => {
-				console.log(element.drinks);
+				console.log(element);
 				createCard(element);
 			});
-			let cards = document.querySelectorAll(".card");
-			console.log(cards);
+			cards = document.querySelectorAll(".card");
+			cards.forEach((card) => {
+				card.addEventListener("click", (e) => showDetails(e));
+			});
 		})
 		.catch((err) => console.log(err));
 });
 
+function showDetails(e) {
+	console.log(e.currentTarget);
+	console.log("clicked");
+}
