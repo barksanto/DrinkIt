@@ -35,8 +35,6 @@ searchBtn.addEventListener("click", () => {
 		);
 	}
 
-	// dpcument.addEventListener
-
 	//  Blue Margarita
 	fetch(
 		`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchQuery}`
@@ -49,6 +47,8 @@ searchBtn.addEventListener("click", () => {
 				console.log(element.drinks);
 				createCard(element);
 			});
+			let cards = document.querySelectorAll(".card");
+			console.log(cards);
 		})
 		.catch((err) => console.log(err));
 });
