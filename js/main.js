@@ -3,10 +3,20 @@
 // capture input
 //fetch
 // TODO __________________________________________________________________________________
-//TODO allow 'Enter' keydown to make the search, or make the submit tags a form
+//TODO Error Message for invalid drink type entered in input
 // TODO __________________________________________________________________________________
 
+window.addEventListener("DOMContentLoaded", () => {
+	let drinksInMemory = JSON.parse(localStorage.getItem("drinks"));
+	if (drinksInMemory.length > 0) {
+		drinksInMemory.forEach((drink) => {
+			createCard(drink);
+		});
+	}
+});
+
 const searchBtn = document.querySelector("button");
+let cardsContainer = document.querySelector(".cards");
 
 searchBtn.addEventListener("click", () => {
 	const input = document.querySelector("input").value;
@@ -14,13 +24,36 @@ searchBtn.addEventListener("click", () => {
 
 	let searchQuery = fullDrinkName.join("+");
 
-	let cardsContainer = document.querySelector(".cards");
-	function createCard(drink) {
-		// find list to intert cards
+	let cards = "";
+	// let memoryCards = JSON.parse(localStorage.getItem("drinks"));
+	//  Blue Margarita
+	fetch(
+		`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchQuery}`
+	)
+		.then((response) => response.json())
+		.then((data) => {
+			console.log(data.drinks);
+			localStorage.setItem("drinks", JSON.stringify(data.drinks));
 
-		cardsContainer.insertAdjacentHTML(
-			"afterbegin",
-			`
+			cardsContainer.innerHTML = "";
+			data.drinks.forEach((element) => {
+				console.log(element);
+				createCard(element);
+			});
+			cards = document.querySelectorAll(".card");
+			cards.forEach((card) => {
+				card.addEventListener("click", (e) => showModal(e));
+			});
+		})
+		.catch((err) => console.log(err));
+});
+
+function createCard(drink) {
+	// find list to intert cards
+
+	cardsContainer.insertAdjacentHTML(
+		"afterbegin",
+		`
       <div class="card my-2" style="width: 18rem;">
         <img class="card-img-top" src=${
 					drink.strDrinkThumb
@@ -36,31 +69,11 @@ searchBtn.addEventListener("click", () => {
         </div>
       </div>
       `
-		);
-		console.log(drink);
-	}
-	let cards = "";
-	//  Blue Margarita
-	fetch(
-		`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchQuery}`
-	)
-		.then((response) => response.json())
-		.then((data) => {
-			console.log(data.drinks);
-			cardsContainer.innerHTML = "";
-			data.drinks.forEach((element) => {
-				console.log(element);
-				createCard(element);
-			});
-			cards = document.querySelectorAll(".card");
-			cards.forEach((card) => {
-				card.addEventListener("click", (e) => showDetails(e));
-			});
-		})
-		.catch((err) => console.log(err));
-});
+	);
+}
 
-function showDetails(e) {
+// This function will buld the modal that appears on click
+function showModal(e) {
 	console.log(e.currentTarget);
 	console.log("clicked");
 }
