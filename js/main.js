@@ -22,11 +22,15 @@ searchBtn.addEventListener("click", () => {
 			"afterbegin",
 			`
       <div class="card my-2" style="width: 18rem;">
-        <img class="card-img-top" src=${drink.strDrinkThumb} alt="Card image cap">
+        <img class="card-img-top" src=${
+					drink.strDrinkThumb
+				} alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">${drink.strDrink}</h5>
           <p class="card-text">
-            Drink type: ${drink.strCategory}
+            Drink type: ${
+							drink.strCategory != "Other/Unknown" ? drink.strCategory : "Fun!"
+						}
           </p>
           <a href="#" class="btn btn-primary">Ingredients & instructions</a>
         </div>
