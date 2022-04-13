@@ -36,22 +36,16 @@ html {
   height: 100%;
   margin: auto;
   width: 960px;
-
 }
+
 body{
   margin: 0 auto;
-  /* background-color: aquamarine; */
   height: 100vh;
   color: white;
-  /* z-index: 100; */
-
   position: absolute;
   left: 0;
   right: 0;
   z-index: 99999;
-  /* margin-left: 20px;
-  margin-right: 20px; */
-
   font-family: var(--secondary-font);
   font-size: 2em;
 }
@@ -67,8 +61,8 @@ body{
   /* background-image: url('https://images.unsplash.com/photo-1583227061267-8428fb76fbfd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=713&q=80'); */
   background-image: url('https://images.unsplash.com/photo-1597290282695-edc43d0e7129?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1475&q=80');
   object-fit: contain;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   -webkit-filter: blur(5px);
   -moz-filter: blur(5px);
   -o-filter: blur(5px);
@@ -80,7 +74,7 @@ body{
 
 .cards{
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   color: rgb(255, 255, 255);
   font-size: .8em;
   overflow: scroll !important;
@@ -100,22 +94,32 @@ body{
 .card{
   transition: 0.3s;
   margin-top: 24px;
+  padding: 0;
+
 }
 
 
 .card:hover {
   transform: scale(1.1);
-  box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.8);
+  box-shadow: 15px 15px 15px 1px #0C0910;
   z-index: 3;
   border-color: #007bff !important;
-  
-  /* margin: 50% auto; */
-
-    /* box-shadow: 0 10px 20px rgba(0, 0, 0, .12),
-    0 4px 8px rgba(0, 0, 0, .06); */
 }
 
 .card button{
   position: relative;
   bottom: 10px;
 }
+
+/* .card img, .card-body{
+  border: 3px solid red;
+  width: 70%;
+} */
+.card{
+  max-width: 300px;
+}
+
+/* img{
+  height: 200px;
+  width: 200px;
+} */

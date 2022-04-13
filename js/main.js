@@ -6,6 +6,7 @@
 //TODO Error Message for invalid drink type entered in input
 // TODO __________________________________________________________________________________
 
+// If there are drinks in local storage, render them again.
 window.addEventListener("DOMContentLoaded", () => {
 	let drinksInMemory = JSON.parse(localStorage.getItem("drinks"));
 	if (drinksInMemory.length > 0) {
@@ -18,7 +19,8 @@ window.addEventListener("DOMContentLoaded", () => {
 const searchBtn = document.querySelector("button");
 let cardsContainer = document.querySelector(".cards");
 
-searchBtn.addEventListener("click", () => {
+searchBtn.addEventListener("click", (e) => {
+	e.preventDefault();
 	const input = document.querySelector("input").value;
 	let fullDrinkName = input.split(" ");
 
@@ -54,7 +56,7 @@ function createCard(drink) {
 	cardsContainer.insertAdjacentHTML(
 		"afterbegin",
 		`
-      <div class="card my-2" style="width: 18rem;">
+      <div class="card my-2 col-sm-6 col-lg-4 col-xl-4" >
         <img class="card-img-top" src=${
 					drink.strDrinkThumb
 				} alt="Card image cap">
