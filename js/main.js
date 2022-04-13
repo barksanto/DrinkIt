@@ -56,7 +56,7 @@ function createCard(drink) {
 	cardsContainer.insertAdjacentHTML(
 		"afterbegin",
 		`
-      <div class="card my-2 col-sm-6 col-lg-4 col-xl-4" >
+      <div class="card my-2 col-sm-12 col-lg-4 col-xl-4" >
         <img class="card-img-top" src=${
 					drink.strDrinkThumb
 				} alt="Card image cap">
